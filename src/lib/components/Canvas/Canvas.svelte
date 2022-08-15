@@ -13,13 +13,13 @@
 
   onMount(() => {
     ctx = canvas.getContext('2d');
-    canvas.addEventListener('mousedown', onMouseDown);
-    canvas.addEventListener('mouseup', onMouseUp);
+    document.addEventListener('mousedown', onMouseDown);
+    document.addEventListener('mouseup', onMouseUp);
     document.addEventListener('keyup', nuke);
 
     return () => {
-      canvas.removeEventListener('mousedown', onMouseDown);
-      canvas.removeEventListener('mouseup', onMouseUp);
+      document.removeEventListener('mousedown', onMouseDown);
+      document.removeEventListener('mouseup', onMouseUp);
       document.removeEventListener('keyup', nuke);
     }
   });
@@ -39,12 +39,12 @@
 
   function onMouseDown(event) {
     if (!$isAuthenticated) return;
-    canvas.addEventListener("mousemove", draw);
+    document.addEventListener("mousemove", draw);
     reposition(event);
   }
 
   function onMouseUp() {
-    canvas.removeEventListener("mousemove", draw);
+    document.removeEventListener("mousemove", draw);
     isCanvasDirty.set(true);
   }
 
