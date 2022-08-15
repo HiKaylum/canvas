@@ -31,7 +31,7 @@
 <nav>
   <h1>Canvas</h1>
   {#if !$isAuthenticated }
-    <Button click={login}>
+    <Button on:click={login}>
       Login
     </Button>
   {/if}
@@ -39,12 +39,13 @@
   {#if $isAuthenticated}
     <div class="user">
       <p>{$user.email}</p>
-      <Button click={logout}>
+      <Button on:click={logout}>
         Log out
       </Button>
     </div>
   {/if}
 </nav>
+
 <slot></slot>
 
 <style lang="scss">

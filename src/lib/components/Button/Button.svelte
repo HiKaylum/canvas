@@ -1,10 +1,9 @@
 <script>
-  export let click;
   export let large = false;
 </script>
 
 <button
-  on:click={click}
+  on:click
   class:large
 >
   <slot></slot>
