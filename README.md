@@ -1,38 +1,36 @@
-# create-svelte
+# Canvas
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Just playing around with Svelte
 
-## Creating a project
+## Setup
 
-If you're seeing this, you've probably already done this step. Congrats!
+You will need to create an [Auth0](https://auth0.com/) account and create a [tenant](https://auth0.com/docs/get-started/auth0-overview/create-tenants). Once one is created click `Create Application`
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+![Create Application](https://i.gyazo.com/41ba81c7ebca34107396e8c421d38a91.png)
 
-# create a new project in my-app
-npm create svelte@latest my-app
+A popup will appear, name your app and select `Single Page Web Applications`. 
+
+![Create Application Popup](https://i.gyazo.com/631ba5dd6571c5fdd898033d232f66e7.png)
+  
+Once this is done click on `settings` and add `http://localhost:5173/` to the following;
+
+1. Allowed Callback URLs
+2. Allowed Logout URLs
+3. Allowed Web Origins
+
+Then create a file in the root directory `.env.development` and add the following entries:
+
+```
+VITE_AUTH0_DOMAIN=AUTH0_DOMAIN_HERE
+VITE_AUTH0_CLIENT_ID=AUTH0_CLIENT_ID_HERE
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Once done you to start the dev server run:
 
 ```bash
-npm run dev
+# Install packages
+npm i
 
-# or start the server and open the app in a new browser tab
+# Run dev server
 npm run dev -- --open
 ```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
