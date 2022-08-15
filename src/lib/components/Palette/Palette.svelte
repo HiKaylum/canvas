@@ -1,6 +1,8 @@
 <script>
+  import { fade } from 'svelte/transition';
   import { GetColorName } from 'hex-color-to-color-name';
   import { isAuthenticated } from '$lib/store/authentication';
+  import { isCanvasDirty } from '$lib/store/canvas';
 
   export let colors = [];
   export let chosenColor = colors[0];
@@ -25,6 +27,12 @@
 
   {#if !$isAuthenticated}
     <p>You must be logged in to draw!</p>
+  {:else if $isCanvasDirty}
+    <p
+      transition:fade
+    >
+      Press F to NUKE!!
+    </p>
   {/if}
 </div>
 
